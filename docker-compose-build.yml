@@ -1,0 +1,13 @@
+version: '3'
+services:
+  kafka-eagle:
+    build: .
+    container_name: kfk-eagle
+    restart: always
+    ports:
+      - "8048:8048"
+    environment:
+      ZKSERVER: "10.10.10.244:2181"
+    volumes:
+      - ./config/system-config.properties:/kafka-eagle/conf/system-config.properties
+      - ./logs:/kafka-eagle/logs
